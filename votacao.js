@@ -2,12 +2,13 @@ function inserir(valor){
     var valor1 = document.getElementById("campo1").value;
     var valor2 = document.getElementById("campo2").value;
 
-    if (valor1 ==""){
+    if (valor1 == ""){
         document.getElementById("campo1").value = valor;
-    
-    }else if (valor2 == ""){
+    }
+    else if (valor2 == ""){
         document.getElementById("campo2").value = valor;
     }
+}
 
 function corrige(){
     document.getElementById("campo1").value = "";
@@ -20,21 +21,22 @@ function votar(){
     var candidato = (valor1 * 10)+ valor2;
     if (sessionStorage.getItem(candidato) !== null){
         votos = parseInt(sessionStorage.getItem(candidato)) + 1;
-        sessionStorage.setItem(candidato , votos);
+        sessionStorage.setItem(candidato, votos);
     }else{
-        sessionStorage.setItem(candidato , 1);
+        sessionStorage.setItem(candidato, 1);
     }
-}
-    alert("Confirmad voto no candidato " +candidato)
+    alert("Confirmado, segundo Elvis, Seu voto foi no candidato " +candidato)
     document.getElementById("campo1").value = "";
     document.getElementById("campo2").value = "";
+}
+    
 
 function resultado (){
     document.getElementById("resultado").innerHTML=""
     for(i=0;i<100;i++){
         if (sessionStorage.getItem(i) !== null){
             //alert;
-            document.getElementById("resultado").innerHTML += "Candidato  " +i+"tem" + sessionStorage.getItem(i)+"votos<br/>"
+            document.getElementById("resultado").innerHTML += "Candidato  "+i+" tem "+sessionStorage.getItem(i)+"votos<br/>";
         }
     }
 }
@@ -76,4 +78,3 @@ function resultado (){
 
 
 
-}
